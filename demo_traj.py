@@ -91,6 +91,8 @@ def demo(args):
 
     # ---------- Save trajectory (TUM format always) ----------
     with open(traj_file, "w") as f:
+        f.write("# ground truth trajectory\n")
+        f.write(f"# file: '{traj_file}'\n")
         f.write("# timestamp tx ty tz qx qy qz qw\n")
         for img_name, pose in zip(image_names, poses_c2w):
             t = pose[:3, 3]
